@@ -12,9 +12,4 @@ router.get('/home', function(req, res, next) {
   res.send({test: "this is a json"});
 });
 
-// router.get('/users', function(req, res, next) {
-//   console.log('home page users json');
-//   res.send({test: "this is a users json"});
-// });
-
 module.exports = router;
