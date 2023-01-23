@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const User = require('../models/userModel')
+const userService = require('../services/UserService');
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
@@ -14,7 +16,16 @@ const getUserById = (req, res) => {
 };
 
 const createUser = (req, res) => {
-    res.send('Creating a new user');
+    const newUser = userService.saveUser(new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        handle: req.body.handle,
+        phoneNumber: req.body.phoneNumber,
+        password: req.body.password
+    })).then((result) => {
+        res.status(201).send(result);
+    });
 };
 
 const updateUser = (req, res) => {
