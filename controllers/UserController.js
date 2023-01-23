@@ -16,7 +16,7 @@ const getUserById = (req, res) => {
 };
 
 const createUser = (req, res) => {
-    const newUser = userService.saveUser(new User({
+    userService.saveUser(new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -25,6 +25,8 @@ const createUser = (req, res) => {
         password: req.body.password
     })).then((result) => {
         res.status(201).send(result);
+    }).catch((result) => {
+        res.status(400);
     });
 };
 
