@@ -8,11 +8,19 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
 const getAllUsers = (req, res) => {
-    res.send('Getting all users');
+    userService.findAllUsers()
+    .then((result) => {
+        res.status(200).send(result);
+    });
 };
 
 const getUserById = (req, res) => {
-    res.send('Getting a user by id');
+    userService.findUserById(req.params.id)
+    .then((result) => {
+        res.status(200).send(result);
+    }).catch((err) => {
+        res.status(404).send("No user found for id " + req.params.id);
+    });
 };
 
 const createUser = (req, res) => {
@@ -25,12 +33,23 @@ const createUser = (req, res) => {
         password: req.body.password
     })).then((result) => {
         res.status(201).send(result);
-    }).catch((result) => {
+    }).catch((err) => {
         res.status(400);
     });
 };
 
 const updateUser = (req, res) => {
+    console.log({"id": req.params.id});
+    userService.updateUser({"_id": req.params.id}, {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber
+    }).then((result) => {
+        res.status(201).send(result);
+    }).catch((err) => {
+        res.status(400);
+    });
     res.send('Updating an existing user');
 };
 
