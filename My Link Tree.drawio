@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-28T14:11:14.902Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="j22srHsIg8HeQmleVSNU" version="20.8.10" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-28T23:07:10.364Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="PzWq_s3N75Qe3TVIjwCn" version="20.8.10" type="github">
   <diagram name="Page-1" id="bln3w_XPZ4h6MI37T4bz">
     <mxGraphModel dx="1507" dy="682" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -7,7 +7,7 @@
         <mxCell id="v7E7N75x_8W41wSw50_x-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="v7E7N75x_8W41wSw50_x-3" target="v7E7N75x_8W41wSw50_x-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="v7E7N75x_8W41wSw50_x-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="v7E7N75x_8W41wSw50_x-3" target="v7E7N75x_8W41wSw50_x-5" edge="1">
+        <mxCell id="v7E7N75x_8W41wSw50_x-8" value="ZZ&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="v7E7N75x_8W41wSw50_x-3" target="v7E7N75x_8W41wSw50_x-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="v7E7N75x_8W41wSw50_x-3" value="User" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -43,11 +43,35 @@
             <mxPoint x="530" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cVUFuzyZl8mE2EMcl6P--3" value="Backend Service App&lt;br&gt;(used by some service to perform tasks)&lt;br&gt;&lt;br&gt;Java/NodeJS/Python/Cloud Function" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="-230" y="620" width="160" height="160" as="geometry" />
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--8" value="Authentication Server" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="cVUFuzyZl8mE2EMcl6P--4" value="API Resource app" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="340" y="520" width="150" height="150" as="geometry" />
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--10" value="" style="shape=datastore;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="550" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--11" value="End User App &lt;br&gt;(used by real people with emails and passwords)&lt;br&gt;&lt;br&gt;Angular/React/iOS&lt;br&gt;/Android/Web" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-240" y="820" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--12" value="Backend Service App&lt;br&gt;(used by some service to perform tasks)&lt;br&gt;&lt;br&gt;Java/NodeJS/Python/Cloud Function" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-240" y="1000" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--13" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="370" y="910" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--14" value="API Resource Server" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cVUFuzyZl8mE2EMcl6P--13">
+          <mxGeometry width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--15" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.security.lock_protected;" vertex="1" parent="cVUFuzyZl8mE2EMcl6P--13">
+          <mxGeometry x="58" y="10" width="34" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--16" value="Authorization Server" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="120" y="980" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--17" value="Authentication Server" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-15" y="830" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cVUFuzyZl8mE2EMcl6P--18" value="" style="shape=datastore;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="660" width="60" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
