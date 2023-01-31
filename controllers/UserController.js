@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const User = require('../models/userModel')
 const userService = require('../services/UserService');
+const authenticationService = require('../services/AuthenticationService');
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
@@ -14,8 +15,8 @@ const getAllUsers = (req, res) => {
     });
 };
 
-const getUserById = (req, res) => {
-    userService.findUserById(req.params.id)
+const findUserByUsername = (req, res) => {
+    userService.findUserByUsername(req.params.id)
     .then((result) => {
         res.status(200).send(result);
     }).catch((err) => {
@@ -23,7 +24,7 @@ const getUserById = (req, res) => {
     });
 };
 
-const createUser = (req, res) => {
+const createUser = (req, res, next) => {
     userService.saveUser(new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -34,7 +35,13 @@ const createUser = (req, res) => {
     })).then((result) => {
         res.status(201).send(result);
     }).catch((err) => {
-        res.status(400);
+        if (err.name === 'MongoServerError' && err.code === 11000) {
+            // Duplicate username
+            return res.status(422).send({ succes: false, message: 'User already exist!' });
+        }else{
+            // Some other error
+            return res.status(422).send(err);
+        }
     });
 };
 
@@ -57,10 +64,41 @@ const deleteUser = (req, res) => {
     res.send('Deleting a user');
 };
 
+const createAccessToken = (req, res) => {
+    const token = authenticationService.createAccessToken(req.body.email, req.body.password)
+    res.status(200).send(token);
+};
+
+const authenticateToken = (req, res, next) => {
+    authenticationService.authenticateToken(req, res, next);
+    const email = req.user.email;
+    console.log('email', email);
+    userService.findUserByUsername(email)
+    .then((result) => {
+        const found = result[0].email === req.body.email;
+        if(found){
+            res.status(200).json({ succes: true, message: 'User Authenticated' });
+        }else{
+            res.status(401).json({ succes: false, message: 'User Not authenticated' });
+        }
+    }).catch((err) => {
+        console.log(err.name, err.code);
+        if (err.name === 'NotFoundError') {
+            // Duplicate username
+            return res.status(404).send({ succes: false, message: 'User not found' });
+        }else{
+            // Some other error
+            return res.status(422).send(err);
+        }
+    });
+}
+
 module.exports = {
     getAllUsers,
-    getUserById, 
+    findUserByUsername, 
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    createAccessToken,
+    authenticateToken
 };
